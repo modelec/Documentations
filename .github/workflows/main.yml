@@ -1,0 +1,14 @@
+            - name: Build Writerside docs using Docker
+  # You may pin to the exact commit or the version.
+  # uses: JetBrains/writerside-github-action@3ff1261bf37fa87d1fbbf4e2f266ea67b910344a
+  uses: JetBrains/writerside-github-action@v4
+  with:
+    # Writerside docker image version
+    docker-version: # optional
+    # Writerside documentation module location
+    location: # optional, default is 
+    # Module name and instance ID
+    instance: 
+    # Archive to store as artifact
+    artifact: 
+          
