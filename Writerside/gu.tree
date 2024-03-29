@@ -4,9 +4,9 @@
 
 <instance-profile id="gu"
                  name="Guide d'utilisation"
-                 start-page="starter-topic.md">
+                 start-page="Présentation.md">
 
-    <toc-element topic="starter-topic.md"/>
+    <toc-element topic="Présentation.md"/>
     <toc-element topic="Serge.md">
         <toc-element topic="Odométrie.md"/>
         <toc-element topic="Lidar.md"/>

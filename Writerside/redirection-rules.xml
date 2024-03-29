@@ -10,4 +10,8 @@
         <description><![CDATA[Created after removal of "<Serge.md>" from Guide d'utilisation]]></description>
         <accepts>Serge.html</accepts>
     </rule>
+    <rule id="475eea90">
+        <description>Created after removal of "About Guide d'utilisation" from Guide d'utilisation</description>
+        <accepts>starter-topic.html</accepts>
+    </rule>
 </rules>
