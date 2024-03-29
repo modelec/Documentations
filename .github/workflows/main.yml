@@ -1,5 +1,6 @@
 name: Build documentation
 
+
 on:
   push:
     # To trigger the workflow once you push to the `main` branch
