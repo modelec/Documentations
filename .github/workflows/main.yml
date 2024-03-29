@@ -1,14 +1,38 @@
-            - name: Build Writerside docs using Docker
-  # You may pin to the exact commit or the version.
-  # uses: JetBrains/writerside-github-action@3ff1261bf37fa87d1fbbf4e2f266ea67b910344a
-  uses: JetBrains/writerside-github-action@v4
-  with:
-    # Writerside docker image version
-    docker-version: # optional
-    # Writerside documentation module location
-    location: # optional, default is 
-    # Module name and instance ID
-    instance: 
-    # Archive to store as artifact
-    artifact: 
-          
+name: Build documentation
+
+on:
+  push:
+  # To trigger the workflow once you push to the `main` branch
+  # Replace `main` with your branch’s name
+    branches: ["main"]
+  # Specify to run a workflow manually from the Actions tab on GitHub
+  workflow_dispatch:
+
+env:
+  # Name of module and id separated by a slash
+  INSTANCE: Writerside/gu
+  # Replace HI with the ID of the instance in capital letters
+  ARTIFACT: webHelpGU2-all.zip
+  # Docker image version
+  DOCKER_VERSION: 233.14938
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Build Writerside docs using Docker
+        uses: JetBrains/writerside-github-action@v4
+        with:
+          instance: ${{ env.INSTANCE }}
+          artifact: ${{ env.ARTIFACT }}
+          docker-version: ${{ env.DOCKER_VERSION }}
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact
+          path: artifacts/${{ env.ARTIFACT }}
+          retention-days: 7
