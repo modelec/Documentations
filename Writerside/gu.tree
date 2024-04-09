@@ -8,6 +8,7 @@
 
     <toc-element topic="Présentation.md"/>
     <toc-element topic="Serge.md">
+        <toc-element topic="Code.md"/>
         <toc-element topic="Odométrie.md"/>
         <toc-element topic="Lidar.md"/>
         <toc-element topic="Actionneurs.md"/>
