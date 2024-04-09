@@ -9,6 +9,11 @@ mkdir Serge && cd Serge
 chmod 700 /run/user/1000
 ```
 
+````Bash
+crontab -e
+@reboot chmod 700 /run/user/1000
+````
+
 ## Installation du client TCP
 ```BASH
 git clone https://github.com/modelec/TCPSocketClient.git
