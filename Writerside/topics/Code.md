@@ -20,8 +20,9 @@ git clone https://github.com/modelec/TCPSocketClient.git
 cd TCPSocketClient/
 mkdir build && cd build
 cmake ..
-sudo make 
+sudo make install
 cd ../..
+echo 'export LD_LIBRARY_PATH=:/usr/local/lib64:/usr/local/lib' >> ~/.bashrc
 ```
 
 ## Installation du serveur TCP
