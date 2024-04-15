@@ -94,6 +94,10 @@ cd ../..
 ````
 {collapsible="true"}
 </tab>
+</tabs>
+
+<tabs>
+
 <tab title="Connecteur raspi -> ardiuno">
 Installation du connecteur raspi -> arduino, il sert à transmettre les ordres de la raspi à l'arduino.
 
