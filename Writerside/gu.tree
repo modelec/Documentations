@@ -3,15 +3,17 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="gu"
-                 name="Guide d'utilisation"
+                 name="Documentation Robot Modelec 2024"
                  start-page="Présentation.md">
 
     <toc-element topic="Présentation.md"/>
     <toc-element topic="Serge.md">
         <toc-element topic="Code.md"/>
+        <toc-element topic="Strategie.md"/>
         <toc-element topic="Odométrie.md"/>
         <toc-element topic="Lidar.md"/>
         <toc-element topic="Actionneurs.md"/>
+        <toc-element topic="Montage_Serge.md"/>
     </toc-element>
     <toc-element topic="Pami.md">
         <toc-element topic="Montage.md"/>

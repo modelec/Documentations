@@ -1,20 +1,24 @@
 # Code
 
-## Installation des dépendances
+Installation des différents programmes du robot
+{collapsible="true" default-state="collapsed"}
+<tabs>
+<tab title="Dépendances">
+Installtion des dépendances pour les différents programmes de Serge
 lxqt est necessaire car il install des lib manquantes pour l'ihm
 
 ```BASH
 sudo apt install build-essential cmake gcc libopencv-dev qt6-base-dev qt6-base-dev-tools lxqt-core qt6-wayland libcamera-dev
 mkdir Serge && cd Serge
 chmod 700 /run/user/1000
-```
-
-````Bash
 crontab -e
 @reboot chmod 700 /run/user/1000
-````
+```
+{collapsible="true"}
+</tab>
+<tab title="Client TCP">
+Installation du client TCP, il sert à recevoir et à envoyer les paquets TCP pour l'interconnexion entre les différents programmes de Serge
 
-## Installation du client TCP
 ```BASH
 git clone https://github.com/modelec/TCPSocketClient.git
 cd TCPSocketClient/
@@ -24,8 +28,11 @@ sudo make install
 cd ../..
 echo 'export LD_LIBRARY_PATH=:/usr/local/lib64:/usr/local/lib' >> ~/.bashrc
 ```
+{collapsible="true"}
+</tab>
+<tab title="Serveur TCP">
+Installation du serveur TCP, il sert à gérer les paquets TCP pour l'interconnexion des différents programmes de Serge.
 
-## Installation du serveur TCP
 ```BASH
 git clone https://github.com/modelec/TCPSocketServer.git
 cd TCPSocketServer/
@@ -34,8 +41,11 @@ cmake ..
 make
 cd ../..
 ```
+{collapsible="true"}
+</tab>
+<tab title="Détéction de l'adversaire">
+Installation du programme de détéction de l'adversaire, il utilise le Lidar pour détécter la présence d'adversaire afin de ne pas leur rentrer dedans.
 
-## Installtion de la détection de l'adversaire
 ```BASH
 git clone https://github.com/Slamtec/rplidar_sdk.git
 cd rplidar_sdk/
@@ -48,8 +58,11 @@ cmake ..
 make
 cd ../..
 ```
+{collapsible="true"}
+</tab>
+<tab title="Contrôle des servo-moteurs">
+Installation du programme de contrôle des servo-moteurs, il sert à contrôler les servo moteurs utile pour les différents actionneurs.
 
-## Installation du programme de contrôle des servo-moteurs
 ````Bash
 git clone https://github.com/barulicm/PiPCA9685.git
 cd PiPCA9685
@@ -66,8 +79,11 @@ cmake ..
 make
 cd ../..
 ````
+{collapsible="true"}
+</tab>
+<tab title="IHM">
+Installation de l'IHM, l'IHM sert à controler les différents systèmes ainsi qu'à lancer Serge.
 
-## Installtion de l'IHM
 ````Bash
 git clone https://github.com/modelec/ihm.git
 cd ihm
@@ -76,8 +92,15 @@ cmake ..
 make
 cd ../..
 ````
+{collapsible="true"}
+</tab>
+</tabs>
 
-## Installation du connecteur raspi -> arduino
+<tabs>
+
+<tab title="Connecteur raspi -> ardiuno">
+Installation du connecteur raspi -> arduino, il sert à transmettre les ordres de la raspi à l'arduino.
+
 ````Bash
 git clone https://github.com/modelec/connectors.git -b tcp
 cd connectors/
@@ -86,8 +109,11 @@ cmake ..
 make
 cd ../..
 ````
+{collapsible="true"}
+</tab>
+<tab title="Détéction des pots et des panneaux solaires">
+Installation du programme de détéction des pots et des panneaux solaires, il sert à détécter les pots et à transmettre leurs coordonner, même chose pour les panneaux solaires avec l'orientation en plus.
 
-## Installtion du programme de détection des pots et des panneaux solaires
 ````Bash
 git clone https://github.com/kbarni/LCCV.git
 cd LCCV
@@ -104,8 +130,11 @@ cmake ..
 make
 cd ../..
 ````
+{collapsible="true"}
+</tab>
+<tab title="Tirette">
+Installation du programme de la tirette, il sert à détécter si la tirette est retier ou est en place.
 
-## Installation du programme de la tirette
 ````Bash
 git clone https://github.com/WiringPi/WiringPi.git
 cd WiringPi
@@ -118,8 +147,14 @@ cd tirette
 g++ main.cpp MyClient.cpp MyClient.h -o tirette -l wiringPi -l TCPSocket
 cd ../
 ````
+{collapsible="true"}
+</tab>
+<tab title="Initialisation">
+Installation du programme d'initialisation, il sert à l'initialisation des différents programme de Serge, ainsi qu'à verifier si les différents programmes fonctionnent toujours.
 
-## Installation du programme d'initialisation
 ````Bash
 git clone https://github.com/modelec/Initialisation.git
 ````
+{collapsible="true"}
+</tab>
+</tabs>
