@@ -28,16 +28,19 @@ Une fois le code lancé, il est nécessaire de donner au code du lidar la positi
 
 ### Protocole de communication
 
-| Emetteur | Destinataire | Verbe        | Données     | Réaction du système                                                                                           |
-|----------|--------------|--------------|-------------|---------------------------------------------------------------------------------------------------------------|
-| Tous     | lidar ou all | ping         |             | réponse: lidar;émetteur;pong;                                                                                 |
-| Tous     | lidar ou all | get data     |             | réponse: lidar;émetteur;set avoidance;x,y,radius ET lidar;émetteur;set position;x,y,alpha SI mode balises à 1 |
-| Tous     | lidar ou all | get health   |             | réponse: lidar;émetteur;set health;1 ou 0                                                                     |
-| Tous     | lidar ou all | start        |             | Démarrage du moteur et du laser. Début des calculs d'évitement et de triangulation                            |
-| Tous     | lidar ou all | stop         |             | Arrêt du moteur, du laser et des calculs                                                                      |
-| Tous     | lidar ou all | set position | x, y, alpha | Mise à jour de la position du robot dans le programme du lidar                                                |
-| Tous     | lidar ou all | set team     | 1 ou 0      | Mise à jour de la position des balises de triangulation dans le programme du lidar                            |
-| Tous     | lidar ou all | set beacon   | 1 ou 0      | Allumage ou extinction du mode balises => 0 : pas de triangulation et 1 : triangulation sur les balises       |
+| Emetteur | Destinataire       | Verbe         | Données     | Réaction du système                                                                       |
+|----------|--------------------|---------------|-------------|-------------------------------------------------------------------------------------------|
+| Tous     | lidar ou all       | ping          |             | réponse: lidar;émetteur;pong;                                                             |
+| Tous     | lidar ou all       | get data      |             | réponse: lidar;émetteur;set avoidance;x,y,radius                                          |
+| Tous     | lidar ou all       | get health    |             | réponse: lidar;émetteur;set health;1 ou 0                                                 |
+| Tous     | lidar ou all       | start         |             | Démarrage du moteur et du laser. Début des calculs d'évitement et de triangulation        |
+| Tous     | lidar ou all       | stop          |             | Arrêt du moteur, du laser et des calculs                                                  |
+| Tous     | lidar ou all       | set position  | x, y, alpha | Mise à jour de la position du robot dans le programme du lidar                            |
+| Tous     | lidar ou all       | set team      | 1 ou 0      | Mise à jour de la position des balises de triangulation dans le programme du lidar        |
+| Tous     | lidar ou all       | set beacon    | 1 ou 0      | Indique au robot si les balises ont été installées ou non 1 = balises, 0 = pas de balises |
+| Tous     | lidar              | get pos       |             | Passe le lidar en mode triangulation **attention** voir doc du mode triangulation         |
+| lidar    | all                | stop proximity| dist, angle | Alerte en cas de proximité directe                                                        |
+| lidar    | émetteur précédent | set pos       | x, y, alpha | Renvoie les résultats calculés en mode triangulation                                      |
 
 ### Alertes de proximité
 
