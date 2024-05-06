@@ -28,19 +28,20 @@ Une fois le code lancé, il est nécessaire de donner au code du lidar la positi
 
 ### Protocole de communication
 
-| Emetteur | Destinataire       | Verbe         | Données     | Réaction du système                                                                       |
-|----------|--------------------|---------------|-------------|-------------------------------------------------------------------------------------------|
-| Tous     | lidar ou all       | ping          |             | réponse: lidar;émetteur;pong;                                                             |
-| Tous     | lidar ou all       | get data      |             | réponse: lidar;émetteur;set avoidance;x,y,radius                                          |
-| Tous     | lidar ou all       | get health    |             | réponse: lidar;émetteur;set health;1 ou 0                                                 |
-| Tous     | lidar ou all       | start         |             | Démarrage du moteur et du laser. Début des calculs d'évitement et de triangulation        |
-| Tous     | lidar ou all       | stop          |             | Arrêt du moteur, du laser et des calculs                                                  |
-| Tous     | lidar ou all       | set position  | x, y, alpha | Mise à jour de la position du robot dans le programme du lidar                            |
-| Tous     | lidar ou all       | set team      | 1 ou 0      | Mise à jour de la position des balises de triangulation dans le programme du lidar        |
-| Tous     | lidar ou all       | set beacon    | 1 ou 0      | Indique au robot si les balises ont été installées ou non 1 = balises, 0 = pas de balises |
-| Tous     | lidar              | get pos       |             | Passe le lidar en mode triangulation **attention** voir doc du mode triangulation         |
-| lidar    | all                | stop proximity| dist, angle | Alerte en cas de proximité directe                                                        |
-| lidar    | émetteur précédent | set pos       | x, y, alpha | Renvoie les résultats calculés en mode triangulation                                      |
+| Emetteur | Destinataire       | Verbe            | Données     | Réaction du système                                                                                                 |
+|----------|--------------------|------------------|-------------|---------------------------------------------------------------------------------------------------------------------|
+| Tous     | lidar ou all       | ping             |             | réponse: lidar;émetteur;pong;                                                                                       |
+| Tous     | lidar ou all       | get data         |             | réponse: lidar;émetteur;set avoidance;x,y,radius                                                                    |
+| Tous     | lidar ou all       | get health       |             | réponse: lidar;émetteur;set health;1 ou 0                                                                           |
+| Tous     | lidar ou all       | start            |             | Démarrage du moteur et du laser. Début des calculs d'évitement et de triangulation                                  |
+| Tous     | lidar ou all       | stop             |             | Arrêt du moteur, du laser et des calculs                                                                            |
+| Tous     | lidar ou all       | set pos          | x, y, alpha | Mise à jour de la position du robot dans le programme du lidar                                                      |
+| Tous     | lidar ou all       | set team         | 1 ou 0      | Mise à jour de la position des balises de triangulation dans le programme du lidar (1 = jaune, 0 = bleu)            |
+| Tous     | lidar ou all       | set beacon       | 1 ou 0      | Indique au robot si les balises ont été installées ou non 1 = balises, 0 = pas de balises                           |
+| Tous     | lidar              | get pos          |             | Passe le lidar en mode triangulation **attention** voir doc du mode triangulation                                   |
+| lidar    | all                | stop proximity   | dist, angle | Alerte en cas de proximité directe. Dist en mm et angle en cent. de rad. dans la base du robot (0 = avant du robot) |
+| lidar    | émetteur précédent | set pos          | x, y, alpha | Renvoie les résultats calculés en mode triangulation                                                                |
+| lidar    | all                | stop recalibrate | décalage    | Indique que la valeur de position calculée par l'odométrie est trop éloignée de celle calculée par triangulation    |
 
 ### Alertes de proximité
 
@@ -102,14 +103,17 @@ A la fin du processus de calcul, le code du lidar envoie de lui même les résul
 
 Le fichier header localization.h contient un certain nombre de constantes dont les valeurs peuvent être modifiées pour optimiser la performance du programme.
 
-| Nom                   | Modifiable | Effet sur le programme                                                                                    | Valeur type        |
-|-----------------------|------------|-----------------------------------------------------------------------------------------------------------|--------------------|
-| NODES_LEN             | NON        | Taille du tableau de points détectés à chaque tour                                                        | 8192               |
-| MAX_TABLE_X           | OUI        | Longueur X de la table, à modifier seulement en test pour de petites tables                               | 3000 (Unité : mm)  |
-| MAX_TABLE_Y           | OUI        | Longueur Y de la table, à modifier seulement en test pour de petites tables                               | 2000 (Unité : mm)  |
-| BEACON_DETECT_RANGE   | OUI        | Rayon du cercle à l'intérieur duquel un amas est considéré comme étant une balise                         | 100 (Unité : mm)   |
-| PROXIMITY_ALERT_RANGE | OUI        | Distance maximale en dessous de laquelle une alerte de proximité est lancée                               | 250 (Unité : mm)   |
-| BORDER_DETECT_TRIGGER | OUI        | Distance retirée aux bordures au moment de l'exclusion des points en dehors du terrain                    | 50 (Unité : mm)    |
-| AGGLOMERATES_TRIGGER  | OUI        | Distance entre deux points en dessous de laquelle ils sont considérés comme étant dans le même agglomérat | 250 (Unité : mm)   |
-| BEACONS_RADIUS        | OUI        | Rayon extérieur des balises                                                                               | 50 (Unité : mm)    |
-| TRIANGULATION_ROUNDS  | OUI        | Nombre de tours de lidar analysés en mode triangulation                                                   | 3                  |
+| Nom                              | Modifiable | Effet sur le programme                                                                                    | Valeur type                                                     |
+|----------------------------------|------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| NODES_LEN                        | NON        | Taille du tableau de points détectés à chaque tour                                                        | 8192                                                            |
+| MAX_TABLE_X                      | OUI        | Longueur X de la table, à modifier seulement en test pour de petites tables                               | 3000 (Unité : mm)                                               |
+| MAX_TABLE_Y                      | OUI        | Longueur Y de la table, à modifier seulement en test pour de petites tables                               | 2000 (Unité : mm)                                               |
+| BEACON_DETECT_RANGE              | OUI        | Rayon du cercle à l'intérieur duquel un amas est considéré comme étant une balise                         | 100 (Unité : mm)                                                |
+| PROXIMITY_ALERT_RANGE            | OUI        | Distance maximale en dessous de laquelle une alerte de proximité est lancée                               | 250 (Unité : mm)                                                |
+| BORDER_DETECT_TRIGGER            | OUI        | Distance retirée aux bordures au moment de l'exclusion des points en dehors du terrain                    | 50 (Unité : mm)                                                 |
+| AGGLOMERATES_TRIGGER             | OUI        | Distance entre deux points en dessous de laquelle ils sont considérés comme étant dans le même agglomérat | 250 (Unité : mm)                                                |
+| BEACONS_RADIUS                   | OUI        | Rayon extérieur des balises                                                                               | 50 (Unité : mm)                                                 |
+| TRIANGULATION_ROUNDS             | OUI        | Nombre de tours de lidar analysés en mode triangulation                                                   | 3                                                               |
+| POSITION_CORRECT_RANGE           | OUI        | Décalage de position maximum acceptable avant envoi du message recalibrate                                | 25                                                              |
+| YELLOW_TEAM_BEACONS_POS          | OUI        | Position des balises de l'équipe jaune                                                                    | {make_pair(3094,72), make_pair(3094,1928), make_pair(-94,1000)} |
+| BLUE_TEAM_BEACONS_POS            | OUI        | Position des balises de l'équipe bleue                                                                    | {make_pair(-94,72), make_pair(-94,1928), make_pair(3094,1000)}  |
