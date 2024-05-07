@@ -21,7 +21,10 @@ Serge est un robot qui a pour objectif de déplacer des plantes et d'orienter de
 ## Fonctionnement
 {collapsible="true" default-state="expanded"}
 ### Détéction d'une plante
-La détéction des plantes est gérée par OpenCV, le code est disponible [ici](https://github.com/modelec/detection_pot).
+La détéction des plantes est gérée par OpenCV, pour plus de détail voir [ici](Strategie.md).
 
 ### Détéction de l'adversaire
-La détéction de l'adversaire est gérée par le Lidar, le code est disponible [ici](https://github.com/modelec/detection_adversaire)
+La détéction de l'adversaire est gérée par le Lidar, pour plus de détail voir [ici](Lidar.md).
+
+### Programme d'urgence
+Le programme d'urgence est géré par la raspberry pi et l'arduino, pour plus de détail voir [ici](Emergency.md).
