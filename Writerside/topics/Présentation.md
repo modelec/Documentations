@@ -9,3 +9,7 @@ objectifs.
 
 Le robot principal a pour objectif principal de récupérer des plantes sur une table de jeux de 2 mètres par 3 mètres.
 Par la suite, il devra les déplacer soit dans des zones de dépots au sol, soit dans des jardinières qui sont en hauteurs.
+
+Tous les codes sont disponibles sur [github](https://github.com/modelec).
+
+L'instagram du club est [ici](https://www.instagram.com/modelec_isen).

@@ -14,4 +14,9 @@
         <description>Created after removal of "About Guide d'utilisation" from Guide d'utilisation</description>
         <accepts>starter-topic.html</accepts>
     </rule>
+    <rule id="6e4a507d">
+        <description>
+            <![CDATA[Created after removal of "<Emergency.md>" from Documentation Robot Modelec 2024]]></description>
+        <accepts>Emergency.html</accepts>
+    </rule>
 </rules>
