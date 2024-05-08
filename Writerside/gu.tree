@@ -12,7 +12,9 @@
         <toc-element topic="Strategie.md"/>
         <toc-element topic="Odométrie.md"/>
         <toc-element topic="Lidar.md"/>
-        <toc-element topic="Actionneurs.md"/>
+        <toc-element topic="Actionneurs.md">
+        </toc-element>
+        <toc-element topic="Emergency.md"/>
         <toc-element topic="Montage_Serge.md"/>
         <toc-element topic="Checklist.md"/>
     </toc-element>
