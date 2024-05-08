@@ -1,4 +1,4 @@
-# Déroulé des 3 minutes de préparation de match
+# Déroulé de la préparation de match
 
 ## Point reglement
 
