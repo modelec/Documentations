@@ -13,7 +13,7 @@ Usage of tailscale to connect to the raspberry without knowing its IP.
 1. Create an account on tailscale
 2. Register your device
 3. Install the tailscale client on your device
-4. Run the following commands
+4. Run this following commands
 
 ```Bash
 sudo tailscale login
