@@ -144,7 +144,7 @@ sudo apt install ./wiringpi_3.2_arm64.deb
 cd ..
 git clone https://github.com/modelec/tirette.git
 cd tirette
-g++ main.cpp MyClient.cpp MyClient.h -o tirette -l wiringPi -l TCPSocket
+g++ main.cpp MyClient.cpp MyClient.h -o tirette -l wiringPi -l TCPClient -l Utils -l CLParser
 cd ../
 ````
 {collapsible="true"}
