@@ -16,12 +16,12 @@ crontab -e
 ```
 {collapsible="true"}
 </tab>
-<tab title="Client TCP">
-Installation du client TCP, il sert à recevoir et à envoyer les paquets TCP pour l'interconnexion entre les différents programmes de Serge
+<tab title="Bibliothèque Modelec C++">
+Installation des bibliothèque Modelec C++, elle sert à simplifier la programmation des différents programmes de Serge.
 
 ```BASH
-git clone https://github.com/modelec/TCPSocketClient.git
-cd TCPSocketClient/
+git clone https://github.com/modelec/cpp-lib.git
+cd cpp-lib/
 mkdir build && cd build
 cmake ..
 sudo make install
