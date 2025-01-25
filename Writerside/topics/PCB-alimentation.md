@@ -1,6 +1,9 @@
 # PCB alimentation
 ## Introduction
 Le PCB alimentation 2025 du robot fait le lien entre les différentes sources d'alimentation et les composants du robot.
+
+La release concernée par cette documentation est ici https://github.com/modelec/pcb_puissance/releases/tag/v2-alpha
+
 Les fonctionnalités proposées sont :
 - Jusqu'à 3 sources, hot-pluggable
 - Protection contre les reverse voltages en entrée
