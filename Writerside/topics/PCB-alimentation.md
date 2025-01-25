@@ -133,7 +133,7 @@ Documentations :
 
 Concepteur avec paramètres utilisés : [tools.analog.com](https://tools.analog.com/en/toolbox/LTC4417/#vin_v1=22&tol_v1=45&vin_v2=13&tol_v2=5&vin_v3=13&tol_v3=5&uv_v1=10&ov_v1=35&uv_v2=11.15&ov_v2=35&uv_v3=11.15&ov_v3=35&hys_config=int&idiv=10&rsource_v2=0.03&rsource_v3=0.03&fet_selection=SUD50P06-15&fet_selection_ch2=SUD50P06-15&fet_selection_ch3=SUD50P06-15&rsource_v1=0.03&esr=0.018&rds_on=20&rds_on_ch2=20&rds_on_ch3=20&use_custom_fet=false&vdroop_supply=1&vdroop_out=0.5&iload=10&inrush_target=10&inrush_target_ch2=10&inrush_target_ch3=10&cout_act=1000&use_std_inrush=true&topology_ch1=3rt&use_std_ch1=true&topology_ch2=3rt&use_std_ch2=true&topology_ch3=3rt&use_std_ch3=true)
 ### Sous-partie sorties
-![Schema electrique sorties](../../img/pcb_puissance_2025-Output Connectors.svg){ width="800" }
+![Schema electrique sorties](../../img/pcb_puissance_2025-Output_Connectors.svg){ width="800" }
 Mesure de courant/tension pour chaque zone. Controlleur USB-PD supplémentaire pour la sortie 5,15V.
 
 Documentations : 
