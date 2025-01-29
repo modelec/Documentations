@@ -1,4 +1,6 @@
 # PCB alimentation
+Mis à jour pour la version [v2-alpha.1](https://github.com/modelec/pcb_puissance/releases/tag/v2-alpha-1)
+
 ## Introduction
 Le PCB alimentation 2025 du robot fait le lien entre les différentes sources d'alimentation et les composants du robot.
 
@@ -14,6 +16,7 @@ Les fonctionnalités proposées sont :
 - Mesure de la température de la carte
 - Protocole USB-PD sur la sortie 5,15V
 - Remontée d'info & GPIO
+- Buzzer désactivable via un switch
 ## Besoins
 Les besoins qui nous ont amené à réaliser un PCB alimentation pour le robot sont :
 - Réduction du câblage
@@ -155,12 +158,114 @@ Documentations :
 ## Routage
 ### Couche supérieure
 ![Routage dessus](../../img/pcb_puissance_2025-F_Cu.png){ width="800" }
-![Routage dessus_silkscreen](../../img/pcb_puissance_2025-F_Cu_S.png){ width="800" }
+![Routage dessous avec vias](../../img/pcb_puissance_2025-F_Cu_V.png){ width="800" }
+![Routage dessus avec silkscreen](../../img/pcb_puissance_2025-F_Cu_S.png){ width="800" }
 ### Couche inférieure
 ![Routage dessous](../../img/pcb_puissance_2025-B_Cu.png){ width="800" }
-![Routage dessous_silkscreen](../../img/pcb_puissance_2025-B_Cu_S.png){ width="800" }
+![Routage dessous avec vias silkscreen](../../img/pcb_puissance_2025-B_Cu_V.png){ width="800" }
+![Routage dessous avec silkscreen](../../img/pcb_puissance_2025-B_Cu_S.png){ width="800" }
+### Perçage
+![Perçage](../../img/pcb_puissance_2025-drl_map.svg){ width="800" }
 ## Vues 3D
 ### Vue de dessus
-![Schema electrique vue de dessus](../../img/pcb_puissance_2025_top.png){ width="800" }
+![Vue 3D de dessus](../../img/pcb_puissance_2025_top.png){ width="800" }
 ### Vue de dessous
-![Schema electrique vue de dessous](../../img/pcb_puissance_2025_bot.png){ width="800" }
+![Vue 3D de dessous](../../img/pcb_puissance_2025_bot.png){ width="800" }
+
+## Qualité
+### Règles de design appliquées
+#### Largeur des pistes
+| 0,2mm                                                                  | 0,5mm                                                                          | 1mm                                                                                  | 2mm                  | 3mm                                                                                                                               | 4mm                       |
+|------------------------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| GPIO, I2C, VALID, OV, UV, Resistances mesure de courant, Gates mosfets | 3,3V, Pads des résistances de mesure de courant, Pads VBUS du connecteur USB-C | Alimentation connecteur USB-C, Alimentation des 6 pins Dupont en sortie de puissance | Vout vers Traco 3,3V | Sources communes des P-MOSFET de puissance, F4, F5, F6, F7, F8, Sorties des Traco => resistances de mesure => connecteurs Phoenix | IN1, IN2, IN3, F1, F2, F3 |
+
+#### Règles de design
+| Regle                         | Valeur | Violation                            |
+|-------------------------------|--------|--------------------------------------|
+| Isolation minimum             | 0,2mm  | Pads STM32, Pads TCPP02, Pads INA236 |
+| Largeur de piste minimum      | 0,2mm  | non                                  |
+| Largeur minimale de connexion | 0,02mm | non                                  |
+| Largeur minimale d'anneau     | 0,1mm  | non                                  |
+| Diamètre minimum de via       | 0,5mmm | non                                  |
+| Isolation trou/cuivre         | 0,25mm | Trou non métallisé connecteur USB-C  |
+|  Isolation cuivre/contour     | 0,5mm  | non                                  |
+
+### Bonnes pratiques
+- SDA et SCL séparées par une piste GND ou 3V3 quand c'est possible.
+- Plans de masse sur les deux faces avec matrice de vias de 5mm et 2,5mm sur les bordures.
+- 
+
+### Vérifications réalisées
+
+- Schéma électrique pour la sélection d'entrée conforme à celui recommandé dans la datasheet du LTC4417.
+- Schéma électrique pour l'USB-PD conforme à celui dans la datasheet de la carte d'évaluation X-NUCLEO-SRC1M1.
+- GPIO du STM32 bien choisis par fonction pour SDA, SLC, PWM du buzzer, CC1, CC2.
+- Condensateurs de découplages présents et conformes aux recommendations des datasheets STM32G419, TCPP02, INA236 et MCP9608.
+- Résistances de pull-up et capacitance totale du bus I2C conformes au [standard](https://www.nxp.com/docs/en/user-guide/UM10204.pdf).
+- Plusieurs chemins de retour pour la masse, suffisamment larges et aménagés avec des vias.
+- Références des empreintes visibles et toutes orientées de la même manière.
+- Espace suffisamment important autour des connecteurs.
+- Indications utilisateur utiles ajoutées pour les fusibles, test points, switches, connecteurs.
+
+## Fabrication
+### Fichiers de fabrication
+Les fichiers sources KiCad et les fichiers de fabrication sont téléchargeables dans les [releases Github](https://github.com/modelec/pcb_puissance/releases)
+### Bill Of Material
+ Reference                                             |Value|Datasheet|Footprint|Qty|
+|-------------------------------------------------------|-|-|-|-|
+ BZ1                                                   |Buzzer|https://product.tdk.com/en/system/files/dam/doc/product/sw_piezo/sw_piezo/piezo-buzzer/catalog/piezoelectronic_buzzer_ps_en.pdf|Modelec:XTAL_PS1240P02BT_TDK|1|
+ C1,C3,C5                                              |0u4|~|Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder|3|
+ C2,C4,C6                                              |40n|~|Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder|3|
+ C7                                                    |1000u|https://search.kemet.com/download/specsheet/ESY108M035AL4AA|Capacitor_THT:CP_Radial_D13.0mm_P5.00mm|1|
+ C8                                                    |10n|~|Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder|1|
+ C9,C10,C13,C14,C15,C16,C17,C18,C21,C23                |100n|~|Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder|10|
+ C11                                                   |4u7|~|Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder|1|
+ C12                                                   |1u|~|Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder|1|
+ C19,C20                                               |330u|~|Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder|2|
+ C22                                                   |2u2|~|Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder|1|
+ D1,D2,D3                                              |BAT54J|https://assets.nexperia.com/documents/data-sheet/BAT54J.pdf|Diode_SMD:D_SOD-323F|3|
+ D4                                                    |ESDA25P35-1U1M|https://www.st.com/resource/en/datasheet/esda25p35-1u1m.pdf|Modelec:QFN1610_STM|1|
+ F1                                                    |10A|https://www.littelfuse.com/assetdocs/littelfuse-fuse-154-series-data-sheet?assetguid=a8a8a462-7295-481b-a91b-d770dabf005b|Modelec:01550900M|2|
+ F7                                                    |10A|https://www.keyelco.com/userAssets/file/M65p42.pdf|Fuse:Fuseholder_Blade_Mini_Keystone_3568|2|
+ F2,F3                                                 |20A|https://www.keyelco.com/userAssets/file/M65p42.pdf|Fuse:Fuseholder_Blade_Mini_Keystone_3568|2|
+ F4,F5,F6                                              |6A|https://www.littelfuse.com/assetdocs/littelfuse-fuse-154-series-data-sheet?assetguid=a8a8a462-7295-481b-a91b-d770dabf005b|Modelec:01550900M|3|
+ F8                                                    |1A25|https://www.littelfuse.com/assetdocs/littelfuse-fuse-154-series-data-sheet?assetguid=a8a8a462-7295-481b-a91b-d770dabf005b|Modelec:01550900M|1|
+ J1,J2,J3,J4,J5,J6,J10,J12,J13,J15,J16,J18,J19,J21,J22 |1755736|http://www.phoenixcontact.com/de/produkte/1755736/pdf|Modelec:PhoenixContact_MSTBVA_2,5_2-G-5,08_1x02_P5.08mm_Vertical|15|
+ J7                                                    |Conn_02x10_Odd_Even|~|Connector_PinHeader_1.27mm:PinHeader_2x10_P1.27mm_Vertical|1|
+ J8                                                    |Conn_ST_STDC14|https://www.st.com/content/ccc/resource/technical/document/user_manual/group1/99/49/91/b6/b2/3a/46/e5/DM00526767/files/DM00526767.pdf/jcr:content/translations/en.DM00526767.pdf|Connector_PinHeader_1.27mm:PinHeader_2x07_P1.27mm_Vertical|1|
+ J11                                                   |USB_C_Receptacle_USB2.0_16P|https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5492/USB4105.pdf|Modelec:GCT_USB4105-GF-A|1|
+ J14,J17,J20                                           |Conn_02x06_Odd_Even|~|Connector_PinHeader_1.27mm:PinHeader_2x06_P1.27mm_Vertical|3|
+ PS1                                                   |TMR_6-2410WI|https://tracopower.com/tmr6-datasheet/|TMR60510|1|
+ PS2,PS3                                               |THN_30-2411WI|https://tracopower.com/thn30-datasheet/|THN301211|2|
+ PS4                                                   |TEN_50-2412WI|https://tracopower.com/ten50wi-datasheet/|TEN_50-2411|1|
+ PS5                                                   |THN_30-2415WI|https://tracopower.com/thn30-datasheet/|THN301211|1|
+ Q1,Q2,Q3,Q4,Q5,Q6                                     |SUD50P06-15|https://www.vishay.com/docs/68940/sud50p06.pdf|Package_TO_SOT_SMD:TO-252-2|6|
+ Q7                                                    |STL40DN3LLH5|https://www.st.com/resource/en/datasheet/stl40dn3llh5.pdf|Modelec:TRANS_STL40DN3LLH5|1|
+ Q8                                                    |NPN|https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_BJTs|Package_TO_SOT_SMD:SOT-23|1|
+ R1                                                    |82k|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|1|
+ R2                                                    |100|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|1|
+ R3,R16,R17,R18,R28                                    |10k|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|5|
+ R4                                                    |63k4|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|1|
+ R5                                                    |158k|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|1|
+ R6                                                    |1960k|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|1|
+ R7,R10                                                |37k4|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|2|
+ R8,R11                                                |78k7|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|2|
+ R9,R12                                                |1180k|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|2|
+ R13,R14,R15                                           |8k06|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|3|
+ R19                                                   |62m 0.5%|https://www.littelfuse.com/media?resourcetype=datasheets&itemid=705ee59d-6d7d-4586-a1c9-d4fd20ab4969&filename=littelfuse-resistor-l4cl-datasheet|Modelec:L4CL1206LR013DNR|1|
+ R20,R22                                               |13m 0.5%|https://www.littelfuse.com/media?resourcetype=datasheets&itemid=705ee59d-6d7d-4586-a1c9-d4fd20ab4969&filename=littelfuse-resistor-l4cl-datasheet|Modelec:L4CL1206LR013DNR|2|
+ R21                                                   |20m 0.5%|https://www.littelfuse.com/media?resourcetype=datasheets&itemid=705ee59d-6d7d-4586-a1c9-d4fd20ab4969&filename=littelfuse-resistor-l4cl-datasheet|Modelec:L4CL1206LR013DNR|1|
+ R23,R24                                               |4m 0.5%|https://s.resistor.today/shop/products/epdf/PEWF2512.pdf|Resistor_SMD:R_2512_6332Metric_Pad1.40x3.35mm_HandSolder|2|
+ R25                                                   |7m 1%|https://www.littelfuse.com/media?resourcetype=datasheets&itemid=705ee59d-6d7d-4586-a1c9-d4fd20ab4969&filename=littelfuse-resistor-l4cl-datasheet|Modelec:L4CL1206LR013DNR|1|
+ R26                                                   |47k|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|1|
+ R27                                                   |1k|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|1|
+ R29,R30                                               |2k2|~|Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder|2|
+ SW1                                                   |SW_Push|https://www.sameskydevices.com/product/resource/ds01-254.pdf|Modelec:SW_DS01-254-L-01BE_CUD|1|
+ TP1,TP2,TP3,TP4,TP5,TP6,TP7,TP8,TP9,TP10              |TestPoint|~|-- valeurs mixtées --|10|
+ U1                                                    |LTC4417IGN|https://www.analog.com/media/en/technical-documentation/data-sheets/4417f.pdf|Package_SO:SSOP-24_3.9x8.7mm_P0.635mm|1|
+ U2                                                    |STM32G491KEU6|STM32G491KEU6|Modelec:STM32G491KEU6|1|
+ U3,U7,U8                                              |INA236BIDDFR|INA236AIDDFR|SOT23-8_DDF_TEX|3|
+ U4,U5,U6                                              |INA236AIDDFR|INA236AIDDFR|SOT23-8_DDF_TEX|3|
+ U9                                                    |TCPP02-M18|https://www.st.com/resource/en/data_brief/tcpp02-m18.pdf|Modelec:QFN50P350X350X60-19N-D|1|
+ U10                                                   |MCP9808T-E/MS|MCP9808T-E/MS|MSOP8_MC_MCH|1|
+
