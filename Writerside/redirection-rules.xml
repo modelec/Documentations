@@ -19,4 +19,8 @@
             <![CDATA[Created after removal of "<Emergency.md>" from Documentation Robot Modelec 2024]]></description>
         <accepts>Emergency.html</accepts>
     </rule>
+    <rule id="553f501e">
+        <description>Created after removal of "dev" from Documentation Robot Modelec 2024</description>
+        <accepts>Reseau.html</accepts>
+    </rule>
 </rules>

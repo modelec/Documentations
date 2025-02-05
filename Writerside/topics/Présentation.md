@@ -1,15 +1,9 @@
 # Présentation
 
-Ce projet s'inscrit dans le cadre de la participation à la Coupe de France de Robotique.
+Cet espace a pour vocation d'être transmis au sein du club d'une année sur l'autre afin de conserver les connaissances du club et de favoriser l'intégration de nouveaux membres.
 
-Le projet est séparé en deux parties : Le robot principal, Serge, et un PAMI, Pixel.
+Nous espérons que vous y trouverez la ressource nécessaire. Sinon, toute modification est bienvenue. N'hésitez pas non plus à demander dans le discord Modelec, quelqu'un aura certainement l'info que vous recherchez.
 
-Lors du temps imparti, qui est de 100 secondes maximum, ce robot affrontera un autre robot pour réaliser les mêmes
-objectifs.
-
-Le robot principal a pour objectif principal de récupérer des plantes sur une table de jeux de 2 mètres par 3 mètres.
-Par la suite, il devra les déplacer soit dans des zones de dépots au sol, soit dans des jardinières qui sont en hauteurs.
-
-Tous les codes sont disponibles sur [github](https://github.com/modelec).
+Tous les codes sont disponibles sur [github](https://github.com/modelec) en open source.
 
 L'instagram du club est [ici](https://www.instagram.com/modelec_isen).
