@@ -6,7 +6,9 @@
                  name="Documentation Robot Modelec 2024"
                  start-page="Présentation.md">
 
-    <toc-element topic="Présentation.md"/>
+    <toc-element topic="Présentation.md">
+        <toc-element topic="Help-Qui-contacter.md"/>
+    </toc-element>
     <toc-element topic="Tutos.md">
         <toc-element topic="Pilotage-imprimante-3D-à-distance.md"/>
         <toc-element topic="connect-rasp.md"/>
