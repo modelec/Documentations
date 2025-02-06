@@ -111,6 +111,7 @@ PlatformIO IDE est un plugin qui doit être installé via les plugins.
 
 ### Création d'un projet Arduino avec PlatformIO IDE
 Ouvrir PlatformIO IDE, créer un nouveau projet. Sélectionner le type de carte (actuellement uno), le framework arduino et l'emplacement.
+ (emplacement par défaut : C:\Users\User\Documents\PlatformIO\Projects\)
 
 ### Ajout du code et lancement
 On peut maintenant récupérer le code sur github. Pour upload, il faut aller dans PlatformIO (à gauche dans les plugins) et cliquer sur upload. La COM sera déterminée automatiquement.
