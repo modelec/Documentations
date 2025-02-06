@@ -5,11 +5,11 @@
 Pour le montage, on utilise celui qui est donné avec la doc du hacheur (DBH-12):
 [Doc Hacheur](https://dronebotworkshop.com/dc-motor-drivers/)
  
-Montage (12V tiré du pcb alimentation):
+Montage (12V tiré du pcb alimentation):  
 ![Montage Moteur Seul Sur Hacheur](../../img/moteurs/Montage moteur seul.png){ width="800" }
 
-Code de test sur arduino : 
-```ino
+Code de test sur arduino :
+```Arduino
  DBH-12 H-Bridge Demo
   dbh-12-demo.ino
   Demonstrates operation of DBH-12 Dual H-Bridge Motor Driver
