@@ -137,14 +137,6 @@ Documentations :
 - [LTC4417](https://www.analog.com/media/en/technical-documentation/data-sheets/ltc4417.pdf)
 
 Concepteur avec paramètres utilisés : [tools.analog.com](https://tools.analog.com/en/toolbox/LTC4417/#vin_v1=22&tol_v1=45&vin_v2=13&tol_v2=5&vin_v3=13&tol_v3=5&uv_v1=10&ov_v1=35&uv_v2=11.15&ov_v2=35&uv_v3=11.15&ov_v3=35&hys_config=int&idiv=10&rsource_v2=0.03&rsource_v3=0.03&fet_selection=SUD50P06-15&fet_selection_ch2=SUD50P06-15&fet_selection_ch3=SUD50P06-15&rsource_v1=0.03&esr=0.018&rds_on=20&rds_on_ch2=20&rds_on_ch3=20&use_custom_fet=false&vdroop_supply=1&vdroop_out=0.5&iload=10&inrush_target=10&inrush_target_ch2=10&inrush_target_ch3=10&cout_act=1000&use_std_inrush=true&topology_ch1=3rt&use_std_ch1=true&topology_ch2=3rt&use_std_ch2=true&topology_ch3=3rt&use_std_ch3=true)
-### Sous-partie sorties
-![Schema electrique sorties](../../img/pcb/pcb_puissance_2025-Output_Connectors.svg){ width="800" }
-Mesure de courant/tension pour chaque zone. Controlleur USB-PD supplémentaire pour la sortie 5,15V.
-
-Documentations : 
-- [INA236](https://www.ti.com/lit/ds/symlink/ina236.pdf)
-- [TCPP02-M18](https://www.st.com/resource/en/datasheet/tcpp02-m18.pdf)
-- [Résistances L4CL](https://www.littelfuse.com/assetdocs/littelfuse_resistor_l4cl_datasheet.pdf?assetguid=705ee59d-6d7d-4586-a1c9-d4fd20ab4969)
 ### Sous-partie microcontrolleur
 ![Schema electrique microcontrolleur](../../img/pcb/pcb_puissance_2025-Microcontroller.svg){ width="800" }
 De gauche à droite:
@@ -156,7 +148,14 @@ De gauche à droite:
 Documentations :
 - [STM32G419](https://www.st.com/resource/en/datasheet/stm32g491ke.pdf)
 - [MCP9608T](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/MCP9808-0.5C-Maximum-Accuracy-Digital-Temperature-Sensor-Data-Sheet-DS20005095B.pdf)
+### Sous-partie sorties
+![Schema electrique sorties](../../img/pcb/pcb_puissance_2025-Output_Connectors.svg){ width="800" }
+Mesure de courant/tension pour chaque zone. Controlleur USB-PD supplémentaire pour la sortie 5,15V.
 
+Documentations :
+- [INA236](https://www.ti.com/lit/ds/symlink/ina236.pdf)
+- [TCPP02-M18](https://www.st.com/resource/en/datasheet/tcpp02-m18.pdf)
+- [Résistances L4CL](https://www.littelfuse.com/assetdocs/littelfuse_resistor_l4cl_datasheet.pdf?assetguid=705ee59d-6d7d-4586-a1c9-d4fd20ab4969)
 ## Routage
 ### Couche supérieure
 ![Routage dessus](../../img/pcb/pcb_puissance_2025-F_Cu.png){ width="800" }
