@@ -8,110 +8,31 @@ Pour le montage, on utilise celui qui est donné avec la doc du hacheur (DBH-12)
 Montage (12V tiré du pcb alimentation):  
 ![Montage Moteur Seul Sur Hacheur](../../img/moteurs/Montage_moteur_seul.png){ width="800" }
 
-Code de test sur arduino :
-```c++
- DBH-12 H-Bridge Demo
-  dbh-12-demo.ino
-  Demonstrates operation of DBH-12 Dual H-Bridge Motor Driver
-    
-  DroneBot Workshop 2022
-  https://dronebotworkshop.com
-*/
- 
-// Motor Connections (All must use PWM pins)
-#define IN1A 3
-#define IN1B 5
-#define IN2A 6
-#define IN2B 9
- 
-// Define a fixed speed - do not exceed 250
-int fixedSpeed = 80;
- 
-void setup() {
- 
-  // Set motor & enable connections as outputs
-  pinMode(IN1A, OUTPUT);
-  pinMode(IN1B, OUTPUT);
-  pinMode(IN2A, OUTPUT);
-  pinMode(IN2B, OUTPUT);
- 
-  // Stop motors
-  analogWrite(IN1A, 0);
-  analogWrite(IN1B, 0);
-  analogWrite(IN2A, 0);
-  analogWrite(IN2B, 0);
-}
- 
-void loop() {
- 
-  // Accelerate both forward
-  digitalWrite(IN1A, LOW);
-  digitalWrite(IN1B, LOW);
-  for (int i = 0; i < 200; i++) {
-    analogWrite(IN2A, i);
-    analogWrite(IN2B, i);
-    delay(20);
-  }
- 
-  delay(500);
- 
-  // Decelerate both forward
-  for (int i = 200; i >= 0; i--) {
-    analogWrite(IN2A, i);
-    analogWrite(IN2B, i);
-    delay(20);
-  }
- 
-  delay(500);
- 
-  // Accelerate both reverse
-  digitalWrite(IN2A, LOW);
-  digitalWrite(IN2B, LOW);
-  for (int i = 0; i < 200; i++) {
-    analogWrite(IN1A, i);
-    analogWrite(IN1B, i);
-    delay(20);
-  }
- 
-  delay(500);
- 
-  // Decelerate both reverse
-  for (int i = 200; i >= 0; i--) {
-    analogWrite(IN1A, i);
-    analogWrite(IN1B, i);
-    delay(20);
-  }
- 
-  delay(500);
- 
-  // Move in opposite directions at fixed speed
-  digitalWrite(IN1A, LOW);
-  digitalWrite(IN2B, LOW);
-  analogWrite(IN1B, fixedSpeed);
-  analogWrite(IN2A, fixedSpeed);
- 
-  delay(3000); 
- 
-  // Stop
-  analogWrite(IN1A, 0);
-  analogWrite(IN1B, 0);
-  analogWrite(IN2A, 0);
-  analogWrite(IN2B, 0);
- 
-  delay(2000);
-}
-```
-{collapsible="true"}
 
-## Setup VSCode : 
-VSCode ne peut pas nativement upload du code sur l'ARDUINO. pour ce faire, on va utiliser **PlatformIO IDE**
+## Setup Cube STM32 : 
+Pour manipuler nos moteurs, on utilise une stm32 (référence : STM32L073RZTx LQFP64). Pour coder nous utilisons donc le Cube STM32 (à télécharger via [ce lien](https://www.st.com/en/development-tools/stm32cubeide.html)
 
-### Installation PlatformIO IDE
-PlatformIO IDE est un plugin qui doit être installé via les plugins.
+### Création d'un nouveau projet
+dans le cube, il faut aller dans file/new/STM32 project. Mettre ensuite la bonne carte dans la barre de recherche (nom marqué sur la carte) dans l'onglet board selector. Remplir le nom du projet et selectionner c++.
 
-### Création d'un projet Arduino avec PlatformIO IDE
-Ouvrir PlatformIO IDE, créer un nouveau projet. Sélectionner le type de carte (actuellement uno), le framework arduino et l'emplacement.
- (emplacement par défaut : C:\Users\User\Documents\PlatformIO\Projects\)
+### Configuration de la fréquence pour les moteurs
+Pour nos moteurs, on se place sur une fréquence à 25kHz, ce qui permet de limiter leur bruit et de les soulager un peu. Pour configurer ceci, il faut se rendre dans l'ioc du projet. 
+Dans clock configuration, la fréquence en sortie du systeme clock mux doit être à 16MHz:
+![ClockConf](../../img/moteurs/ClockConfig.png){ width="800" }
 
-### Ajout du code et lancement
-On peut maintenant récupérer le code sur github. Pour upload, il faut aller dans PlatformIO (à gauche dans les plugins) et cliquer sur upload. La COM sera déterminée automatiquement.
+Gestion des timers : 
+Ce sont les timers de la carte qui vont nous permettre de gérer nos moteurs. Nous utilisons le TIM3. Dans PIN&OUT configuration, Timer, TIM3, il faut setup comme ceci :
+![timer](../../img/moteurs/tim.png){ width="800" }
+
+Pour nos deux moteurs, on utilise 4 channels : un moteur est sur channel 1 et 3 et l'autre sur 2 et 4. Ceci nous permet d'envoyer au hacheur un signal pwm.
+
+Pour avoir 25kHz, il faut configurer le prescaler et l'ARR de la carte. Pour ce faire il existe la formule :
+![formule](../../img/moteurs/formule_psc_arr.png){ width="800" }
+A noter que la frec d'horloge du timer correspond à la fréquence configurée précédement (notre 16Mhz).
+
+En faisant le calcul, on arrive à un psc à 0 et un arr à 639. On choisis ces valeurs pour maximiser l'arr, qui est la valeur sur laquelle on jouera plus tard. plus elle est grande plus on aura de choix de valeurs.
+![init](../../img/moteurs/initial_setup.png){ width="800" }
+pour confirmer et implémenter ces configurations dans le code, on utilise l'outil d'engrenage dans la barre d'outil : Device configuration tool generation.
+
+### Gestion du code
+Pour le code, on aoute juste une fonction main dans la boucle principale du code, et on fait tout dans des fichiers à part. 
