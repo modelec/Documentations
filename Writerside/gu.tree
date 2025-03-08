@@ -10,6 +10,7 @@
         <toc-element topic="Help-Qui-contacter.md"/>
     </toc-element>
     <toc-element topic="Tutos.md">
+        <toc-element topic="Participer-au-wiki.md"/>
         <toc-element topic="Faire-un-PCB-sur-KiCad-v9.md"/>
         <toc-element topic="Pilotage-imprimante-3D-à-distance.md"/>
         <toc-element topic="connect-rasp.md"/>
