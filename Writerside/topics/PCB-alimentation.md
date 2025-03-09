@@ -1,10 +1,10 @@
 # PCB alimentation
-Mis à jour pour la version [v2-beta](https://github.com/modelec/pcb_puissance/releases/tag/v2-beta)
+Mis à jour pour la version [v2](https://github.com/modelec/pcbs_modelec/releases/tag/alim-v2) commandée le 8 mars 2025.
 
 ## Introduction
 Le PCB alimentation 2025 du robot fait le lien entre les différentes sources d'alimentation et les composants du robot.
 
-La release concernée par cette documentation est ici : [Release](https://github.com/modelec/pcb_puissance/releases/tag/v2-beta)
+La release concernée par cette documentation est ici : [Release](https://github.com/modelec/pcbs_modelec/releases/tag/alim-v2)
 
 Les fonctionnalités proposées sont :
 - Jusqu'à 3 sources, hot pluggable
