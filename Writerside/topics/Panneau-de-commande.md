@@ -109,7 +109,7 @@ Le mode test n'est utilisable que depuis l'écran. Il doit permettre les fonctio
 ## Schema général
 
 ![Schema general Vincent](../../img/panneauCommande/panneauCommande.png){ width="800" }
-(schéma à remettre à jour)
+(crédit : Vincent, schéma à remettre à jour)
 ### Voltmètre
 
 L'indicateur 7 segment est un voltmètre qui indique la tension de l'alimentation actuelle.
