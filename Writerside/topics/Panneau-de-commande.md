@@ -1,6 +1,6 @@
 # Panneau de commande
 
-# Objectifs
+## Objectifs
 
 Le panneau de commande du robot doit permettre de réaliser les séquences de démarrage et de lancement de match et de faire un retour d'information sur l'état du robot sans utiliser l'écran en cas de panne de celui-ci.
 
@@ -8,16 +8,16 @@ L'écran tactile doit permettre de piloter toutes les cartes du robot en mode te
 
 Le panneau de commande doit être amovible afin d'accéder au compartiment électronique du robot.
 
-# Etats et modes
+## Etats et modes
 
-## Modes de fonctionnement
+### Modes de fonctionnement
 ```mermaid
 graph LR
     A[Mode attente]
     A <----> B[Mode match]
     A <----> C[Mode test]
 ```
-## Mode attente
+### Mode attente
 ```plantuml
 @startuml
 
@@ -68,7 +68,7 @@ Prêt --> [*]
 
 @enduml
 ```
-## Mode match
+### Mode match
 ```plantuml
 @startuml
 
@@ -96,7 +96,7 @@ MatchTerminé --> [*]
 
 @enduml
 ```
-## Mode test
+### Mode test
 
 Le mode test n'est utilisable que depuis l'écran. Il doit permettre les fonctions suivantes :
 - Pilotage et retour d'info de la carte d'alim (voir [Pilotage PCB Alimentation](Pilotage-PCB-alimentation.md))
@@ -104,31 +104,33 @@ Le mode test n'est utilisable que depuis l'écran. Il doit permettre les fonctio
 - Pilotage et retour d'info du lidar ?
 - Pilotage des actionneurs (notamment pour homologation)
 
-# Boutons et voyants
+## Boutons et voyants
 
-## Plan général
+## Schema général
 
-## Voltmètre
+![Schema general Vincent](../../img/panneauCommande/panneauCommande.png){ width="800" }
+(schéma à remettre à jour)
+### Voltmètre
 
 L'indicateur 7 segment est un voltmètre qui indique la tension de l'alimentation actuelle.
 
-## Switch haut
+### Switch haut
 
 Le switch est en position haute : le pilotage du robot se fait via l'écran et on passera par l'état InitialisationEcran en mode match.
 
 Le switch est en position basse : On passe en mode match après avoir atteint l'état Prêt du mode attente. L'écran est désactivé (peut être conservé pour affichage seulement) et on passera par l'état InitialisationBouton.
 
-## Switch milieu
+### Switch milieu
 
 Inutile dans tous les autres états que l'état InitialisationBouton
 
 Dans l'état InitialisationBouton du mode match : permet de sélectionner la couleur du robot (haut = bleu, bas = jaune)
 
-## Switch bas
+### Switch bas
 
 à définir (choix entre deux stratégies ? entre plusieurs zones de départ ?)
 
-## Ecran tactile
+### Ecran tactile
 
 L'ecran doit permettre d'accéder aux 3 modes de fonctionnement du robot et de passer par toutes les étapes de l'initialisation du mode match.
 
@@ -136,7 +138,7 @@ L'état InitialisationEcran du mode match permet plus de détail que l'état Ini
 
 L'armement de la tirette ne se fait pas par l'écran mais par le bouton ON.
 
-## Coupe-circuit général
+### Coupe-circuit général
 
 Le switch est en position basse : le robot est dans le mode attente dans l'état éteint.
 
@@ -144,7 +146,7 @@ Le switch est passé en position haute : on passe dans l'état allumage
 
 LED du switch allumée : etat SourceStable atteint (non fonctionnel actuellement)
 
-## Matrice de LEDS
+### Matrice de LEDS
 
 LED arrêt d'urgence : rouge, allumée si le BAU est enfoncé
 
@@ -154,7 +156,7 @@ Possibilités :
 - 3 LEDS pour indiquer quelle entrée d'alimentation est sélectionnée
 - LED rouge pour indiquer un défaut (batterie faible, un des transfos éteint, surchauffe)
 
-## Bouton ON
+### Bouton ON
 
 Le bouton ON sert à armer la tirette.
 
