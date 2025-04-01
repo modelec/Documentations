@@ -1,6 +1,6 @@
-﻿<primary-label ref="Deprecated"/>
+﻿# Arm Controller
+<primary-label ref="Deprecated"/>
 
-# Arm Controller
 `<modelec/arm_controller.hpp>`
 
 ## Objectif

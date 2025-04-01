@@ -1,4 +1,5 @@
 ﻿# Arm Control
+<primary-label ref="Deprecated"/>
 
 ## Nom du topic : **arm_control**
 [Interface](ServoMode-Message-Interface.md)
