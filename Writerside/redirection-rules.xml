@@ -23,4 +23,25 @@
         <description>Created after removal of "dev" from Documentation Robot Modelec 2024</description>
         <accepts>Reseau.html</accepts>
     </rule>
+    <rule id="2aee5e8a">
+        <description>Created after removal of "ROS2" from Documentation Robot Modelec 2024</description>
+        <accepts>ROS2.html</accepts>
+    </rule>
+    <rule id="7d1843c2">
+        <description>Created after removal of "ArduinoData message interface" from Documentation Robot Modelec 2024
+        </description>
+        <accepts>ArduinoData.html</accepts>
+    </rule>
+    <rule id="797a0cd5">
+        <description>Created after removal of "ModelecSnippet" from Documentation Robot Modelec 2024</description>
+        <accepts>modelecsnippet.html</accepts>
+    </rule>
+    <rule id="19d7dbd0">
+        <description>Created after removal of "Add Button" from Documentation Robot Modelec 2024</description>
+        <accepts>Add-Button.html</accepts>
+    </rule>
+    <rule id="2aaa44a4">
+        <description>Created after removal of "Robot Position" from Documentation Robot Modelec 2024</description>
+        <accepts>Robot-Position.html</accepts>
+    </rule>
 </rules>
