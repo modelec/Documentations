@@ -1,4 +1,4 @@
-# PCB alimentation
+# PCB Alimentation
 Mis à jour pour la version [v2](https://github.com/modelec/pcbs_modelec/releases/tag/alim-v2) commandée le 8 mars 2025.
 
 ## Introduction
