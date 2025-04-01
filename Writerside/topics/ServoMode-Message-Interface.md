@@ -1,4 +1,6 @@
-﻿# ServoMode
+﻿<primary-label ref="Deprecated"/>
+
+# ServoMode
 `<modelec_interface/msg/servo_mode.hpp>`
 
 ## Objectif

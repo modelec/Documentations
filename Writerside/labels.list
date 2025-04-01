@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE labels SYSTEM "https://resources.jetbrains.com/writerside/1.0/labels-list.dtd">
+<labels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/labels.xsd">
+    <primary-label id="Deprecated" short-name="D" name="Deprecated" color="red">
+        This feature is deprecated and will be removed in the future.
+    </primary-label>
+
+    <secondary-label id="wip" name="WIP" color="purple">Work in progress</secondary-label>
+    <secondary-label id="beta" name="β" color="tangerine">Beta</secondary-label>
+</labels>

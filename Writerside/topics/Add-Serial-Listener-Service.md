@@ -10,7 +10,7 @@ Deux topics sont ensuite créés :
 - [](Send-To-Serial-Topic.md) : pour envoyer des données vers le port série.
 
 ### Service
-- [](Multiple-Serial-Listener-Node.md)
+- [](Multiple-Serial-Listener-Node.md) : créer un nouveau listener USB ou renvoie un listener existant (si le listener existe déjà).
 
 ### Client
 - [](PCB-Alim-Interface-Node.md)

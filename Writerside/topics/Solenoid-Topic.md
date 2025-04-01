@@ -7,7 +7,7 @@
 Contrôler l'état d'un solénoïde.
 
 ### Publisher
-- []()
+-
 
 ### Subscriber
 - [](Solenoid-Controller-Node.md)

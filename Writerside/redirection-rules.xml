@@ -44,4 +44,8 @@
         <description>Created after removal of "Robot Position" from Documentation Robot Modelec 2024</description>
         <accepts>Robot-Position.html</accepts>
     </rule>
+    <rule id="35783336">
+        <description>Created after removal of "Robot Position" from Documentation Robot Modelec 2024</description>
+        <accepts>Robot-Position.html</accepts>
+    </rule>
 </rules>

@@ -30,17 +30,17 @@
                     </toc-element>
                     <toc-element topic="ROS2-Modelec.md">
                         <toc-element topic="Nodes.md">
-                            <toc-element topic="Multiple-Serial-Listener-Node.md"/>
-                            <toc-element topic="PCA9685-Controller-Node.md"/>
-                            <toc-element topic="Odometry-Logic-Processor-Node.md"/>
+                            <toc-element topic="Arm-Controller-Node.md"/>
                             <toc-element topic="Button-GPIO-Controller-Node.md"/>
+                            <toc-element topic="Game-Controller-Listener-Node.md"/>
                             <toc-element topic="Lidar-Controller-Node.md"/>
                             <toc-element topic="Move-Controller-Node.md"/>
+                            <toc-element topic="Multiple-Serial-Listener-Node.md"/>
+                            <toc-element topic="Odometry-Logic-Processor-Node.md"/>
+                            <toc-element topic="PCA9685-Controller-Node.md"/>
                             <toc-element topic="PCB-Alim-Interface-Node.md"/>
                             <toc-element topic="Solenoid-Controller-Node.md"/>
                             <toc-element topic="Tirette-Controller-Node.md"/>
-                            <toc-element topic="Arm-Controller-Node.md"/>
-                            <toc-element topic="Game-Controller-Listener-Node.md"/>
                         </toc-element>
                         <toc-element topic="Topics.md">
                             <toc-element topic="Arm-Control-Topic.md"/>
