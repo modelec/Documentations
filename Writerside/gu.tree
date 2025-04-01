@@ -89,6 +89,7 @@
                             <toc-element topic="Tirette-Service-Interface.md"/>
                         </toc-element>
                     </toc-element>
+                    <toc-element topic="Developpement.md"/>
                 </toc-element>
             </toc-element>
         </toc-element>
