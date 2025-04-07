@@ -52,14 +52,14 @@
                             <toc-element topic="Button-Topic.md"/>
                             <toc-element topic="Lidar-Topic.md"/>
                             <toc-element topic="Odometry-Topic.md">
-                                <toc-element topic="Odoemtry-GetPosition-Topic.md"/>
-                                <toc-element topic="Odoemtry-SetPosition-Topic.md"/>
-                                <toc-element topic="Odoemtry-Speed-Topic.md"/>
-                                <toc-element topic="Odoemtry-ToF-Topic.md"/>
-                                <toc-element topic="Odoemtry-WaypoointReach-Topic.md"/>
-                                <toc-element topic="Odoemtry-AddWaypoint-Topic.md"/>
-                                <toc-element topic="Odoemtry-GetPID-Topic.md"/>
-                                <toc-element topic="Odoemtry-SetPID-Topic.md"/>
+                                <toc-element topic="Odometry-GetPosition-Topic.md"/>
+                                <toc-element topic="Odometry-SetPosition-Topic.md"/>
+                                <toc-element topic="Odometry-Speed-Topic.md"/>
+                                <toc-element topic="Odometry-ToF-Topic.md"/>
+                                <toc-element topic="Odometry-WaypointReach-Topic.md"/>
+                                <toc-element topic="Odometry-AddWaypoint-Topic.md"/>
+                                <toc-element topic="Odometry-GetPID-Topic.md"/>
+                                <toc-element topic="Odometry-SetPID-Topic.md"/>
                             </toc-element>
                             <toc-element topic="Solenoid-Topic.md"/>
                             <toc-element topic="Serial-Listener-Topic.md">
