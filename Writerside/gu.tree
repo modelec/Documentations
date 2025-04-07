@@ -20,6 +20,9 @@
             <toc-element topic="PCB-alimentation.md">
                 <toc-element topic="Pilotage-PCB-alimentation.md"/>
             </toc-element>
+            <toc-element topic="PCB-Odométrie.md">
+                <toc-element topic="Pilotage-PCB-odometrie.md"/>
+            </toc-element>
             <toc-element topic="Panneau-de-commande.md"/>
             <toc-element topic="Moteur-CC.md"/>
             <toc-element topic="Code-Rasp.md">

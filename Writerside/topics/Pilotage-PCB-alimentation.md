@@ -1,4 +1,4 @@
-# Pilotage PCB alimentation
+# Pilotage PCB Alimentation
 
 ## Informations que le PCB peut faire remonter
 - Etat du bouton d'arrêt d'urgence
