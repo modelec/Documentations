@@ -2,7 +2,7 @@
 
 
 ### Debug
-Pour recup les data de la rasp sur son pc->
+Pour interconnecter rasp + pc
 ```bash
 source <modelec-serge-ROS install>/install/setup.bash
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp

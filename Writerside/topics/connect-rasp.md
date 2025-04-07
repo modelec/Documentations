@@ -1,34 +1,34 @@
 # Connect To Raspberry
 
-## Connect to the raspberry with ssh without knowing its IP
+## Se connecter a la raspberry avec ssh sans connaissance de l'IP
 
-Usage of tailscale to connect to the raspberry without knowing its IP.
+Utilisation de tailscale pour se connecter à la raspberry sans connaitre son IP.
 
 ### Installation
 
-[Download the tailscale client](https://tailscale.com/kb/1347/installation)
+[Télécharger le client tailscale](https://tailscale.com/kb/1347/installation)
 
 ### Usage
 
-1. Create an account on tailscale
-2. Register your device
-3. Install the tailscale client on your device
-4. Run this following commands
+1. Créer un compte sur tailscale
+2. Enregistrer votre appareil
+3. Installer le client tailscale sur votre appareil
+4. Lancer les commandes suivantes
 
 ```Bash
 sudo tailscale login
 ```
 
-Now ask an admin to give you the access to the raspberry
+Maintenant demandé à un admin de vous donner l'accès à la raspberry.
 
 ```Bash
 sudo tailscale status
 ```
 
-With `tailscale status` you have the IP of the raspberry.
+Avec la commande `tailscale status` vous avez l'IP de la raspberry.
 
 ```Bash
 ssh modelec@<IP>
 ```
 
-The password must be the famous one.
+Demander à un admin de vous donner le mot de passe.
