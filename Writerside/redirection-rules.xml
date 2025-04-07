@@ -48,4 +48,29 @@
         <description>Created after removal of "Robot Position" from Documentation Robot Modelec 2024</description>
         <accepts>Robot-Position.html</accepts>
     </rule>
+    <rule id="41d692d7">
+        <description>Created after removal of "PID" from Documentation Robot Modelec 2024</description>
+        <accepts>PID.html</accepts>
+    </rule>
+    <rule id="2804f0d3">
+        <description>Created after removal of "Odometry" from Documentation Robot Modelec 2024</description>
+        <accepts>Odometry.html</accepts>
+    </rule>
+    <rule id="620cb063">
+        <description>Created after removal of "OdometryData" from Documentation Robot Modelec 2024</description>
+        <accepts>OdometryData-Message-Interface.html</accepts>
+    </rule>
+    <rule id="403fabd2">
+        <description>Created after removal of "Odometry-Topic-Interface" from Documentation Robot Modelec 2024
+        </description>
+        <accepts>Odometry-Topic-Interface.html</accepts>
+    </rule>
+    <rule id="17751c2d">
+        <description>Created after removal of "Odometry Data" from Documentation Robot Modelec 2024</description>
+        <accepts>Odometry-Data-Topic.html</accepts>
+    </rule>
+    <rule id="2628f634">
+        <description>Created after removal of "Odometry-Topic" from Documentation Robot Modelec 2024</description>
+        <accepts>Odometry-Topic.html</accepts>
+    </rule>
 </rules>
