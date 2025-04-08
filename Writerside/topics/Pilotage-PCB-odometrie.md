@@ -29,7 +29,7 @@ Les mots de communication restent à définir mais un format qui peut être envi
 ### Envoi de la liste des points de passage par la raspi :
 - SET;WAYPOINT;id;type;xx;yy;tt pour écraser le point de passage avec l'id renseigné. Type vaut 0 pour point de passage (en vitesse, peu précis), 1 pour un point d'arrivée (à l'arrêt, très précis)
 ### Démarrage de l'odométrie par la raspi :
-- SET;START;b pour démarrer / éteindre l'odométrie avec le PID (b = 1 pour démarrer, b = 0 pour éteindre)
+- SET;START;b pour démarrer / éteindre l'odométrie (b = 1 pour démarrer, b = 0 pour éteindre)
 ### Changement des coefficients PID par la raspi :
 - SET;PID;P;I;D pour changer les coefficients PID (P, I, D) de l'odométrie.
 ### Réponse du PCB à un ordre (4 dernières commandes)
