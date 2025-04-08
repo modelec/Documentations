@@ -80,6 +80,13 @@
                             <toc-element topic="Add-Solenoid-Service.md"/>
                             <toc-element topic="Add-Serial-Listener-Service.md"/>
                             <toc-element topic="Add-Servo-Service.md"/>
+                            <toc-element topic="Alim-Service.md">
+                                <toc-element topic="AlimOut-Service.md"/>
+                                <toc-element topic="AlimIn-Service.md"/>
+                                <toc-element topic="AlimBau-Service.md"/>
+                                <toc-element topic="AlimEmg-Service.md"/>
+                                <toc-element topic="AlimTemp-Service.md"/>
+                            </toc-element>
                             <toc-element topic="Button-Service.md"/>
                             <toc-element topic="Odometry-Service.md">
                                 <toc-element topic="Odometry-ToF-Service.md"/>
@@ -125,6 +132,13 @@
                                 <toc-element topic="OdometrySpeed-Service-Interface.md"/>
                                 <toc-element topic="OdometryStart-Service-Interface.md"/>
                                 <toc-element topic="OdometryToF-Service-Interface.md"/>
+                            </toc-element>
+                            <toc-element topic="Alim-Service-Interface.md">
+                                <toc-element topic="AlimBau-Service-Interface.md"/>
+                                <toc-element topic="AlimEmg-Service-Interface.md"/>
+                                <toc-element topic="AlimIn-Service-Interface.md"/>
+                                <toc-element topic="AlimOut-Service-Interface.md"/>
+                                <toc-element topic="AlimTemp-Service-Interface.md"/>
                             </toc-element>
                             <toc-element topic="AddButton-Service-Interface.md"/>
                             <toc-element topic="AddSolenoid-Service-Interface.md"/>

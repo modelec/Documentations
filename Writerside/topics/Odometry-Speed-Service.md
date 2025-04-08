@@ -4,7 +4,7 @@
 [Interface](OdometrySpeed-Service-Interface.md)
 
 ## Objectif
-Récuperer la vitesse du robot à partir de l'odométrie.
+Récupérer la vitesse du robot à partir de l'odométrie.
 
 ### Service
 - [](PCB-Odo-Interface-Node.md)
