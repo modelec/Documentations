@@ -18,15 +18,21 @@ Les mots de communication restent à définir mais un format qui peut être envi
 - GET;POS
 - GET;SPEED
 - GET;DIST;N pour récupérer la distance mesurée par le ToF numéro N.
+- GET;PID pour récupérer les valeurs des PID.
 ### Réponse du PCB à une demande de donnée
 - SET;POS;xx;yy;tt pour renvoyer la position mesurée (x,y,angle) en mm et en radians.
 - SET;SPEED;xx;yy;tt pour renvoyer la vitesse mesurée (x,y,angle) en mm².
 - SET;DIST;N;xx pour renvoyer la distance mesurée par le ToF N en mm.
+- SET;PID;P;I;D pour renvoyer les valeurs des PID (P, I, D).
 ### Reset de la position par la raspi
 - SET;POS;xx;yy;tt
 ### Envoi de la liste des points de passage par la raspi :
 - SET;WAYPOINT;id;type;xx;yy;tt pour écraser le point de passage avec l'id renseigné. Type vaut 0 pour point de passage (en vitesse, peu précis), 1 pour un point d'arrivée (à l'arrêt, très précis)
-### Réponse du PCB à un ordre (2 dernières commandes)
+### Démarrage de l'odométrie par la raspi :
+- SET;START;b pour démarrer / éteindre l'odométrie (b = 1 pour démarrer, b = 0 pour éteindre)
+### Changement des coefficients PID par la raspi :
+- SET;PID;P;I;D pour changer les coefficients PID (P, I, D) de l'odométrie.
+### Réponse du PCB à un ordre (4 dernières commandes)
 - OK;XXXX;YYYY;...; avec XXXX, YYYY, ... identiques à la commande SET pour valider une commande effectuée.
 - KO;XXXX;YYYY;...; pour une commande échouée, ou pas de réponse
 ### Envoi de la position en direct au passage d'un waypoint par le PCB :
