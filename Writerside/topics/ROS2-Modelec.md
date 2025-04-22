@@ -1,4 +1,5 @@
 ﻿# Modelec package
+`modelec_core`
 
 ## Pourquoi ROS2 sur Marcel ?
 

@@ -31,6 +31,7 @@
                     <toc-element topic="ROS2-Installation.md">
                         <toc-element topic="ROS2-avec-JetBrain-pour-windows.md"/>
                     </toc-element>
+                    <toc-element topic="Developpement.md"/>
                     <toc-element topic="ROS2-Modelec.md">
                         <toc-element topic="Nodes.md">
                             <toc-element topic="Arm-Controller-Node.md"/>
@@ -148,7 +149,11 @@
                             <toc-element topic="Tirette-Service-Interface.md"/>
                         </toc-element>
                     </toc-element>
-                    <toc-element topic="Developpement.md"/>
+                    <toc-element topic="ROS2-COM-Package.md"/>
+                    <toc-element topic="RSO2-API-Package.md"/>
+                    <toc-element topic="RSO2-Sensors-Package.md"/>
+                    <toc-element topic="ROS2-Strat-Package.md"/>
+                    <toc-element topic="ROS2-Utils-Package.md"/>
                 </toc-element>
             </toc-element>
         </toc-element>

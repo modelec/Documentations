@@ -1,4 +1,5 @@
 ﻿# GUI packages
+`modelec_gui`
 
 Modelec utilise Qt6 pour créer l'interface graphique de son robot.
 > ROS2 utilise nativement Qt5 pour l'interface graphique, mais nous avons choisi de passer à Qt6 pour des raisons de compatibilité et de fonctionnalités.
