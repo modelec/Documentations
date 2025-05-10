@@ -110,7 +110,7 @@ Le PCB alimentation a été réalisé dans le but d'implémenter les spécificat
 
 ## Schéma électrique
 ### Principe général
-![Schema electrique principe général](../../img/pcb/schema_global.svg){ width="800" }
+![Schema electrique principe général](../../img/pcbAlim/schema_global.svg){ width="800" }
 Ce schéma expose le principe général des circuits présents sur la carte.
 - 3 entrées (une pour secteur et deux pour batteries LiPo3S)
 - Fusibles en entrée et avant chaque convertisseur de tension traco power
@@ -119,7 +119,7 @@ Ce schéma expose le principe général des circuits présents sur la carte.
 - USB-PD, buzzer, STM32, coupe circuit
 - Boutons d'arrêt d'urgence sur les convertisseurs concernés.
 ### Architecture générale
-![Schema electrique page principale](../../img/pcb/pcb_puissance_2025.svg){ width="800" }
+![Schema electrique page principale](../../img/pcbAlim/pcb_puissance_2025.svg){ width="800" }
 De gauche à droite :
 - 3 entrées d'alimentation
 - Entrée coupe-circuit (EN) en Normally Open
@@ -129,7 +129,7 @@ De gauche à droite :
 Documentations : 
 - [TMR 6-2410WI](https://tracopower.com/tmr6-datasheet/)
 ### Sous-partie sélection de la tension d'entrée
-![Schema electrique selection entrée](../../img/pcb/pcb_puissance_2025-power_input_selector.svg){ width="800" }
+![Schema electrique selection entrée](../../img/pcbAlim/pcb_puissance_2025-power_input_selector.svg){ width="800" }
 De gauche à droite:
 - Mesure de courant/tension sur les deux entrées destinées aux batteries
 - Résistances pour régler les seuils d'overvoltage et d'undervoltage (voir documentation du LTC4417)
@@ -140,7 +140,7 @@ Documentations :
 
 Concepteur avec paramètres utilisés : [tools.analog.com](https://tools.analog.com/en/toolbox/LTC4417/#vin_v1=22&tol_v1=45&vin_v2=13&tol_v2=5&vin_v3=13&tol_v3=5&uv_v1=10&ov_v1=35&uv_v2=11.15&ov_v2=35&uv_v3=11.15&ov_v3=35&hys_config=int&idiv=10&rsource_v2=0.03&rsource_v3=0.03&fet_selection=SUD50P06-15&fet_selection_ch2=SUD50P06-15&fet_selection_ch3=SUD50P06-15&rsource_v1=0.03&esr=0.025&rds_on=8.5&rds_on_ch2=8.5&rds_on_ch3=8.5&use_custom_fet=false&vdroop_supply=1&vdroop_out=0.5&iload=10&inrush_target=7&inrush_target_ch2=7&inrush_target_ch3=7&cout_act=1000&cs_act=39&cs_act_ch2=39&cs_act_ch3=39&rs_act=11500&rs_act_ch2=11500&rs_act_ch3=11500&cvs=0.39&cvs_ch2=0.39&cvs_ch3=0.39&use_std_inrush=false&topology_ch1=3rt&use_std_ch1=true&topology_ch2=3rt&use_std_ch2=true&topology_ch3=3rt&use_std_ch3=true)
 ### Sous-partie microcontrolleur
-![Schema electrique microcontrolleur](../../img/pcb/pcb_puissance_2025-Microcontroller.svg){ width="800" }
+![Schema electrique microcontrolleur](../../img/pcbAlim/pcb_puissance_2025-Microcontroller.svg){ width="800" }
 De gauche à droite :
 - Connecteur SWD pour flasher le STM32
 - Buzzer
@@ -151,14 +151,14 @@ Documentations :
 - [STM32G419](https://www.st.com/resource/en/datasheet/stm32g491ke.pdf)
 - [MCP9608T](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/MCP9808-0.5C-Maximum-Accuracy-Digital-Temperature-Sensor-Data-Sheet-DS20005095B.pdf)
 ### Sous-partie convertisseurs
-![Schema electrique sorties](../../img/pcb/pcb_puissance_2025-Converters.svg){ width="800" }
+![Schema electrique sorties](../../img/pcbAlim/pcb_puissance_2025-Converters.svg){ width="800" }
 Convertisseurs de tension Traco Power et pilotage via le pin Remote. Les traco peuvent être désactivés via un arrêt d'urgence "bouton" et un arrêt d'urgence "software" provenant du STM32. L'arrêt d'urgence software est désactivable en ajoutant les jumpers 1, 2 et 3.
 
 Documentations :
 - [THN30](https://tracopower.com/thn30-datasheet/)
 - [TEN50WI](https://tracopower.com/ten50wi-datasheet/)
 ### Sous-partie sorties
-![Schema electrique sorties](../../img/pcb/pcb_puissance_2025-Output_Connectors.svg){ width="800" }
+![Schema electrique sorties](../../img/pcbAlim/pcb_puissance_2025-Output_Connectors.svg){ width="800" }
 Mesure de courant/tension pour chaque zone. Contrôleur USB-PD supplémentaire pour la sortie 5,15V.
 
 Documentations :
@@ -167,21 +167,21 @@ Documentations :
 - [Résistances L4CL](https://www.littelfuse.com/assetdocs/littelfuse_resistor_l4cl_datasheet.pdf?assetguid=705ee59d-6d7d-4586-a1c9-d4fd20ab4969)
 ## Routage
 ### Couche supérieure
-![Routage dessus](../../img/pcb/pcb_puissance_2025-F_Cu.png){ width="800" }
-![Routage dessus avec silkscreen](../../img/pcb/pcb_puissance_2025-F_Cu_S.png){ width="800" }
+![Routage dessus](../../img/pcbAlim/pcb_puissance_2025-F_Cu.png){ width="800" }
+![Routage dessus avec silkscreen](../../img/pcbAlim/pcb_puissance_2025-F_Cu_S.png){ width="800" }
 ### Couches intermédiaires
-![Routage couche 2](../../img/pcb/pcb_puissance_2025-2_Cu.png){ width="800" }
-![Routage couche 3](../../img/pcb/pcb_puissance_2025-3_Cu.png){ width="800" }
+![Routage couche 2](../../img/pcbAlim/pcb_puissance_2025-2_Cu.png){ width="800" }
+![Routage couche 3](../../img/pcbAlim/pcb_puissance_2025-3_Cu.png){ width="800" }
 ### Couche inférieure
-![Routage dessous](../../img/pcb/pcb_puissance_2025-B_Cu.png){ width="800" }
-![Routage dessous avec silkscreen](../../img/pcb/pcb_puissance_2025-B_Cu_S.png){ width="800" }
+![Routage dessous](../../img/pcbAlim/pcb_puissance_2025-B_Cu.png){ width="800" }
+![Routage dessous avec silkscreen](../../img/pcbAlim/pcb_puissance_2025-B_Cu_S.png){ width="800" }
 ### Perçage
-![Perçage](../../img/pcb/pcb_puissance_2025-drl_map.png){ width="800" }
+![Perçage](../../img/pcbAlim/pcb_puissance_2025-drl_map.png){ width="800" }
 ## Vues 3D
 ### Vue de dessus
-![Vue 3D de dessus](../../img/pcb/pcb_puissance_2025_top.png){ width="800" }
+![Vue 3D de dessus](../../img/pcbAlim/pcb_puissance_2025_top.png){ width="800" }
 ### Vue de dessous
-![Vue 3D de dessous](../../img/pcb/pcb_puissance_2025_bot.png){ width="800" }
+![Vue 3D de dessous](../../img/pcbAlim/pcb_puissance_2025_bot.png){ width="800" }
 
 ## Qualité
 ### Règles de design appliquées
@@ -290,3 +290,11 @@ Fourniture supplémentaire non présente sur les schémas
 | [0454010.MR](https://www.littelfuse.com/assetdocs/fuse-452-and-454-datasheet?assetguid=8c87aa93-80a7-4ea8-8749-a19ba03901c2) | 5                  | 5                  | Nano fusible 10A                                        |
 | [045401.5MR](https://www.littelfuse.com/assetdocs/fuse-452-and-454-datasheet?assetguid=8c87aa93-80a7-4ea8-8749-a19ba03901c2) | 2                  | 2                  | Nano fusible 1.25A                                      |
 
+## Erreurs et corrections
+
+### J8
+- J8 est à l'envers sur le schéma. Il doit être soudé sur la face supérieure avec son détrompeur vers le bas de la carte.
+- Le 3V3 de J8 n'est pas relié. Il faut ajouter une connexion entre le 3V3 de J8 et le 3V3 de J7.
+
+### R27
+- R27 a une résistance (1k) trop forte pour faire commuter Q8. Il faut réduire la valeur de R27.
