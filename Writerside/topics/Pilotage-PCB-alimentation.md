@@ -16,9 +16,6 @@
 - Configuration des GPIO (à définir : sur quels évènements on passe à l'état haut ou bas ?)
 ## Protocole de communication
 La communication se fait en liaison série UART
-
-Les mots de communication restent à définir mais un format qui peut être envisagé fonctionnerait de la sorte :
-
 ### Récupération d'une donnée par la raspi :
 GET;XXXX;YYYY\n avec XXXX l'élément du PCB concerné et YYYY la donnée demandée dans la liste suivante :
 - BAU;STATE pour l'état du bouton d'arrêt d'urgence (1 ou 0)
@@ -26,7 +23,7 @@ GET;XXXX;YYYY\n avec XXXX l'élément du PCB concerné et YYYY la donnée demand
 - INn;AMPS pour le courant d'entrée des entrées batteries (n vaut 1 ou 2) (En mA)
 - INn;STATE pour l'état de l'entrée (active => entrée qui alimente la carte actuellement. Inactive sinon) (1 ou 0)
 - INn;VALID pour la validité de l'entrée (une entrée peut être valide sans être active !). Valide si sa tension est correcte depuis suffisamment longtemps. (1 ou 0)
-- TEMP;CELS pour la température de la carte (en dixième de celcius)
+- TEMP;CELS pour la température de la carte (en dixième de celsius)
 - OUT5V;STATE
 - OUT5V;VOLT
 - OUT5V;AMPS

@@ -298,3 +298,6 @@ Fourniture supplémentaire non présente sur les schémas
 
 ### R27
 - R27 a une résistance (1k) trop forte pour faire commuter Q8. Il faut réduire la valeur de R27.
+
+### U9
+- EN est déconnecté. EN doit être relié manuellement à PA9 sur le STM32 pour permettre le bon fonctionnement de l'USB-PD.

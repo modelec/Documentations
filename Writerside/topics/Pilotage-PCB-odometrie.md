@@ -10,7 +10,7 @@
 - Liste de points de passages
 - Arrêt/marche
 ## Protocole de communication
-La communication se fait en liaison série UART
+La communication se fait en USB CDC
 
 Les mots de communication restent à définir mais un format qui peut être envisagé fonctionnerait de la sorte :
 
