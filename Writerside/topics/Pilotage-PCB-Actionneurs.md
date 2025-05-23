@@ -45,7 +45,7 @@ Le PCB peut envoyer des informations à la rasp sans répondre à l'une de ses r
 EVENT;XXX;YYY avec XXX l'évènement et YYY une info complémentaire
 - TIR;START pour une tirette armée actionnée par l'utilisateur
 - TIR;ARM pour signaler un appui bouton sur le panneau de commande demandant l'armement de la tirette
-- TIR;DIS pour signaler un appui bouton sur le panneau de commande demandant le désarmement de la tirette
+- TIR;DIS pour signaler un appui bouton sur le panneau de commande et le désarmement de la tirette
 ### Réponse de la rasp à un évènement du PCB
 Si la rasp ne répond pas à l'envoi d'un évènement par le PCB celui ci sera renvoyé jusqu'à recevoir une réponse
 - OK;XXX;YYY pour un message pris en compte par la rasp, XXX et YYY identiques au message EVENT correspondant
