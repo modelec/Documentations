@@ -48,5 +48,5 @@ EVENT;XXX;YYY avec XXX l'évènement et YYY une info complémentaire
 - TIR;DIS pour signaler un appui bouton sur le panneau de commande et le désarmement de la tirette
 ### Réponse de la rasp à un évènement du PCB
 Si la rasp ne répond pas à l'envoi d'un évènement par le PCB celui ci sera renvoyé jusqu'à recevoir une réponse
-- OK;XXX;YYY pour un message pris en compte par la rasp, XXX et YYY identiques au message EVENT correspondant
+- ACK;XXX;YYY pour un message pris en compte par la rasp, XXX et YYY identiques au message EVENT correspondant
 - rien sinon
