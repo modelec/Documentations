@@ -16,7 +16,7 @@ Les fonctionnalités proposées sont :
 Les besoins qui nous ont amené à réaliser un PCB odométrie pour le robot sont :
 - Réduction du câblage
 - Réduction de l'encombrement
-- Microcontrôlleur plus rapide et dédié pour le PID
+- Microcontrôleur plus rapide et dédié pour le PID
 ## Spécifications
 Le PCB odométrie a été réalisé dans le but d'implémenter les spécifications suivantes :
 <tabs>
@@ -91,5 +91,11 @@ Documentations :
 
 ## Erreurs et corrections
 ### J2
-- J2 est à l'envers sur le schéma. Il doit être soudé sur la face supérieure avec son détrompeur vers le bas de la carte. (corrigé sur le silkscreen et la vue 3D présents dans cette doc)
-- Le 3V3 de J2 n'est pas relié. Il faut ajouter une connexion entre le 3V3 de J2 et le 3V3 de PS1. (corrigé sur les routages présents dans cette doc mais absent sur la carte).
+#### J2 - Remarques
+- J2 est à l'envers sur le schéma. Il doit être soudé sur la face supérieure avec son détrompeur vers le bas de la carte.
+- Le 3V3 de J2 n'est pas relié. Il faut ajouter une connexion entre le 3V3 de J2 et le 3V3 de PS1.
+#### J2 - Consequences
+- En présence de ces défauts, le STM32 ne peut pas être flashé ou débuggé avec un STLINK.
+#### J2 - Etat de correction
+- Correction physique sur la carte dans le robot : ✅
+- Correction sur le schéma KiCad : ✅

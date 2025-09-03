@@ -293,11 +293,43 @@ Fourniture supplémentaire non présente sur les schémas
 ## Erreurs et corrections
 
 ### J8
+#### J8 - Remarques
 - J8 est à l'envers sur le schéma. Il doit être soudé sur la face supérieure avec son détrompeur vers le bas de la carte.
 - Le 3V3 de J8 n'est pas relié. Il faut ajouter une connexion entre le 3V3 de J8 et le 3V3 de J7.
-
-### R27
+#### J8 - Consequences
+- En présence de ces défauts, le STM32 ne peut pas être flashé ou débuggé avec un STLINK.
+#### J8 - Etat de correction
+- Correction physique sur la carte dans le robot : ✅
+- Correction sur le schéma KiCad : ✅
+### R27 
+#### R27 - Remarques
 - R27 a une résistance (1k) trop forte pour faire commuter Q8. Il faut réduire la valeur de R27.
-
+#### R27 - Consequences
+- En présence de ce défaut, le buzzer ne produit pas de son.
+#### R27 - Etat de correction
+- Correction physique sur la carte dans le robot : ❌
+- Correction sur le schéma KiCad : ❓
 ### U9
+#### U9 - Remarques
 - EN est déconnecté. EN doit être relié manuellement à PA9 sur le STM32 pour permettre le bon fonctionnement de l'USB-PD.
+#### U9 - Conséquences
+- En présence de ce défaut, l'USB-PD est inutilisable et le port USB-C non alimenté.
+#### U9 - Etat de correction
+- Correction physique sur la carte dans le robot : ✅
+- Correction sur le schéma KiCad : ❓
+### R1
+#### R1 - Remarques
+- R1 est mal placé sur la carte. Ce composant devrait relier les pins de PS3 Trim à -VOUT au lieu de Trim à +VOUT.
+#### R1 - Conséquences
+- EN présence de ce défaut, le traco PS3 a une tension de sortie de 4V8 au lieu de 5V15.
+#### R1 - Etat de correction
+- Correction physique sur la carte dans le robot : ✅
+- Correction sur le schéma KiCad : ❓
+### Q9,Q10,Q11
+#### Q9,Q10,Q11 - Remarques
+- Les mosfet d'arrêt logiciel sont mal placés sur le schéma. Revérifier le placement.
+#### Q9,Q10,Q11 - Conséquences
+- En présence de ce défaut, l'arrêt logiciel est inutilisable sur PS2, PS4, PS5 est inutilisable.
+#### Q9,Q10,Q11 - Etat de correction
+- Correction physique sur la carte dans le robot : ❌
+- Correction sur le schéma KiCad : ❌
