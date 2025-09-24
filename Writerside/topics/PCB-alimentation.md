@@ -329,7 +329,7 @@ Fourniture supplémentaire non présente sur les schémas
 #### Q9,Q10,Q11 - Remarques
 - Les mosfet d'arrêt logiciel sont mal placés sur le schéma. Revérifier le placement.
 #### Q9,Q10,Q11 - Conséquences
-- En présence de ce défaut, l'arrêt logiciel est inutilisable sur PS2, PS4, PS5 est inutilisable.
+- En présence de ce défaut, l'arrêt logiciel sur PS2, PS4, PS5 est inutilisable.
 #### Q9,Q10,Q11 - Etat de correction
 - Correction physique sur la carte dans le robot : ❌
 - Correction sur le schéma KiCad : ❌
